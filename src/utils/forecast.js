@@ -12,7 +12,11 @@ const forecast = (lat, log, callback) => {
       console.log('Name is: ', body.location.name);
       callback(
         undefined,
-        `It is currently ${obj.temperature} degrees out. There is a ${obj.precip} % chance of rain today`
+        `It is currently ${obj.temperature} degrees out\n
+        Weather Description: ${obj.weather_descriptions}, \n
+        Humidity: ${obj.humidity}, \n
+        Observation Time: ${obj.observation_time}, \n
+        `
       );
     }
   });
