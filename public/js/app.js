@@ -22,20 +22,18 @@ formLocation.addEventListener('submit', function (e) {
     console.log('Enter location in the given field.');
     return;
   }
-  fetch(`http://localhost:3000/weather?address=${inputLocation.value}`).then(
-    response => {
-      response.json().then(data => {
-        if (data.error) {
-          console.log(data.error);
-          message1.textContent = '';
-          message2.textContent = '';
-          message1.textContent = `${data.error}`;
-        } else {
-          console.log(data);
-          message1.textContent = `${data.forecastData}`;
-          message2.textContent = `${data.data}`;
-        }
-      });
-    }
-  );
+  fetch(`/weather?address=${inputLocation.value}`).then(response => {
+    response.json().then(data => {
+      if (data.error) {
+        console.log(data.error);
+        message1.textContent = '';
+        message2.textContent = '';
+        message1.textContent = `${data.error}`;
+      } else {
+        console.log(data);
+        message1.textContent = `${data.forecastData}`;
+        message2.textContent = `${data.data}`;
+      }
+    });
+  });
 });

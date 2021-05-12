@@ -13,6 +13,7 @@ const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs'); // to init hbs
 app.set('views', viewsPath);
@@ -135,6 +136,6 @@ app.get('*', (req, res) => {
   // res.send('404 Page');
 });
 
-app.listen(3000, () => {
-  console.log('Server is runing on port 3000');
+app.listen(port, () => {
+  console.log(`Server is runing on port ${port}`);
 });
